@@ -2,6 +2,8 @@ require_relative "boot"
 
 require "rails/all"
 
+require_relative '../app/middleware/tenant_selector'
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -23,11 +25,17 @@ module MultiDbBlog
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.active_record.shard_selector = { lock: true }
 
+    # If using Rails 7
+    # config.active_record.shard_selector = { lock: true }
+
+    # tenants = Rails.application.config_for(:settings)[:tenants]
+    # config.active_record.shard_resolver = ->(request) {
+    #   tenants.keys.find { |key| tenants[key][:hosts].include?(request.env['HTTP_HOST']) } || :app1
+    # }
+
+    # For Rails 6
     tenants = Rails.application.config_for(:settings)[:tenants]
-    config.active_record.shard_resolver = ->(request) {
-      tenants.keys.find { |key| tenants[key][:hosts].include?(request.env['HTTP_HOST']) } || :app1
-    }
+    config.app_middleware.use Middleware::TenantSelector, tenants
   end
 end
