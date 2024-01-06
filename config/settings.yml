@@ -6,3 +6,11 @@ development:
     app2:
       hosts:
         - localhost:4000
+test:
+  tenants:
+    app1:
+      hosts:
+        - localhost:3000
+    app2:
+      hosts:
+        - localhost:4000
