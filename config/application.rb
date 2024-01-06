@@ -1,8 +1,8 @@
-require_relative "boot"
+# frozen_string_literal: true
 
-require "rails/all"
+require_relative 'boot'
 
-require_relative '../app/middleware/tenant_selector'
+require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -16,7 +16,7 @@ module MultiDbBlog
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
-    config.autoload_lib(ignore: %w(assets tasks))
+    config.autoload_lib(ignore: %w[assets tasks])
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -27,15 +27,11 @@ module MultiDbBlog
     # config.eager_load_paths << Rails.root.join("extras")
 
     # If using Rails 7
-    # config.active_record.shard_selector = { lock: true }
+    config.active_record.shard_selector = { lock: true }
 
-    # tenants = Rails.application.config_for(:settings)[:tenants]
-    # config.active_record.shard_resolver = ->(request) {
-    #   tenants.keys.find { |key| tenants[key][:hosts].include?(request.env['HTTP_HOST']) } || :app1
-    # }
-
-    # For Rails 6
     tenants = Rails.application.config_for(:settings)[:tenants]
-    config.app_middleware.use Middleware::TenantSelector, tenants
+    config.active_record.shard_resolver = lambda { |request|
+      tenants.keys.find { |key| tenants[key][:hosts].include?(request.env['HTTP_HOST']) } || :app1
+    }
   end
 end
