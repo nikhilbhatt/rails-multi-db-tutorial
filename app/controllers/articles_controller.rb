@@ -44,6 +44,11 @@ class ArticlesController < ApplicationController
     redirect_to root_path, status: :see_other
   end
 
+  def run_background_job
+    MultiDbTestingJob.perform_later
+    redirect_to root_path
+  end
+
   private
 
   def article_params

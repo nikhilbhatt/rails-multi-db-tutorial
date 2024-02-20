@@ -1,0 +1,2 @@
+web: bin/rails server --port=3000 --environment=development
+sidekiq: bundle exec sidekiq

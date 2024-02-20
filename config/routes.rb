@@ -9,5 +9,9 @@ Rails.application.routes.draw do
   # root "posts#index"
   root 'articles#index'
 
-  resources :articles
+  resources :articles do
+    collection do
+      get :run_background_job
+    end
+  end
 end
