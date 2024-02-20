@@ -45,7 +45,7 @@ class ArticlesController < ApplicationController
   end
 
   def run_background_job
-    MultiDbTestingJob.perform_later
+    MultiDbTestingJob.perform_later(ActiveRecord::Base.connection.shard)
     redirect_to root_path
   end
 
