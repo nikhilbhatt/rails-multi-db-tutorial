@@ -3,7 +3,7 @@
 class SidekiqAdapter
   include Sidekiq::ServerMiddleware
 
-  def call(job_instance, job_payload, queue, &)
+  def call(_job_instance, job_payload, _queue, &)
     shard = current_shard(job_payload)
     ApplicationRecord.connected_to(shard:, role: :writing, &)
   rescue StandardError => e
