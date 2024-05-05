@@ -25,6 +25,7 @@ module MultiDbBlog
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.active_job.queue_adapter = :sidekiq
 
     # If using Rails 7
     config.active_record.shard_selector = { lock: true }

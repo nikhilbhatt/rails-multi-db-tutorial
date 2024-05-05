@@ -44,6 +44,16 @@ class ArticlesController < ApplicationController
     redirect_to root_path, status: :see_other
   end
 
+  def run_background_job
+    MultiDbTestingJob.perform_later(Current.tenant.to_sym)
+    redirect_to root_path
+  end
+
+  def run_background_job_using_adapter
+    MultiDbTestingJobUsingAdapter.set(wait: 2.seconds).perform_later
+    redirect_to root_path
+  end
+
   private
 
   def article_params
