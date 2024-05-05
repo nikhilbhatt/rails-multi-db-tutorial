@@ -9,6 +9,6 @@ Sidekiq::CurrentAttributes.persist('Current')
 
 Sidekiq.configure_server do |config|
   config.server_middleware do |chain|
-    chain.add Middleware::SidekiqAdapter
+    chain.add SidekiqAdapter
   end
 end
