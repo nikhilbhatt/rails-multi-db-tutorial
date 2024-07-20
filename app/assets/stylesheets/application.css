@@ -1,15 +1,56 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+/* Basic styling for the articles list */
+.article-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.article-list li {
+  margin: 5px 0;
+}
+
+.article-link {
+  text-decoration: none;
+  color: #007BFF;
+}
+
+.article-link:hover {
+  text-decoration: underline;
+}
+
+/* Styling for the buttons */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 5px 0;
+  font-size: 16px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+/* Specific button styles */
+.btn-new-article {
+  background-color: #28a745; /* Green */
+}
+
+.btn-run-sidekiq {
+  background-color: #dc3545; /* Red */
+}
+
+.btn-run-sidekiq-adapter {
+  background-color: #17a2b8; /* Blue */
+}
