@@ -10,6 +10,6 @@
 
 <div class="button-group">
   <%= button_to "New Article", new_article_path, method: :get, class: "btn btn-new-article" %>
-  <%= button_to "Run sidekiq job", run_background_job_articles_path, method: :post, class: "btn btn-run-sidekiq" %>
-  <%= button_to "Run sidekiq job Using Adapter", run_background_job_using_adapter_articles_path, method: :post, class: "btn btn-run-sidekiq-adapter" %>
+  <%= button_to "Run sidekiq job", run_background_job_articles_path, method: :get, class: "btn btn-run-sidekiq" %>
+  <%= button_to "Run sidekiq job Using Adapter", run_background_job_using_adapter_articles_path, method: :get, class: "btn btn-run-sidekiq-adapter" %>
 </div>
