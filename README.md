@@ -15,11 +15,15 @@ The purpose of this project is to serve as a tutorial and practical example for 
 
 ## Screenshots
 
+### Application Architecture
+<img src="screenshots/architecture.png" alt="Application Architecture" width="50%" height="50%">
+
+
 ### Tenant 1 (App1 Database)
-[Insert screenshot of app1.localhost connected to app1 db]
+<img src="screenshots/app1.localhost.png" alt="App1" width="50%" height="50%">
 
 ### Tenant 2 (App2 Database)
-[Insert screenshot of app2.localhost connected to app2 db]
+<img src="screenshots/app2.localhost.png" alt="App2" width="50%" height="50%">
 
 ## Getting Started
 
