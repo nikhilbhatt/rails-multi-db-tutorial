@@ -3,14 +3,18 @@ development:
     app1:
       hosts:
         - localhost:3000
+        - app1.localhost
     app2:
       hosts:
         - localhost:4000
+        - app2.localhost
 test:
   tenants:
     app1:
       hosts:
         - localhost:3000
+        - app1.localhost
     app2:
       hosts:
         - localhost:4000
+        - app2.localhost
