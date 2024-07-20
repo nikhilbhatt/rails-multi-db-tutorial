@@ -14,11 +14,6 @@ The purpose of this project is to serve as a tutorial and practical example for 
 - Demonstration of separate databases for different tenants
 
 ## Screenshots
-
-### Application Architecture
-<img src="screenshots/architecture.png" alt="Application Architecture" width="50%" height="50%">
-
-
 ### Tenant 1 (App1 Database)
 <img src="screenshots/app1.localhost.png" alt="App1" width="50%" height="50%">
 
@@ -37,7 +32,7 @@ The purpose of this project is to serve as a tutorial and practical example for 
 
 1. Clone the repository:
 ```
-git clone https://github.com/yourusername/multi-tenant-application.git
+https://github.com/nikhilbhatt/rails-multi-db-tutorial
 ```
 2. Navigate to the project directory:
 ```
@@ -73,7 +68,7 @@ This application demonstrates a multi-tenant architecture where:
 2. The application dynamically connects to the appropriate database based on the tenant
 3. Background jobs (using Sidekiq) maintain tenant context
 
-[You might want to add a simple diagram here illustrating the architecture]
+<img src="screenshots/architecture.png" alt="Application Architecture" width="50%" height="50%">
 
 ## Learn More
 
